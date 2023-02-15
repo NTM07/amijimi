@@ -1,0 +1,32 @@
+
+alfabet = "abcdefghijklmnopqrstuvwxyz"
+dict_alfabet = {}
+for i in range(len(alfabet)):
+    dict_alfabet[alfabet[i]] = i
+
+pesan = input("Masukkan pesan: ")
+
+pesan = pesan.lower().replace(" ", "")
+
+enkripsi = ""
+for i in range(len(pesan)):
+    huruf_ke_n = pesan[i]
+    m = dict_alfabet[huruf_ke_n]
+    n = i+1
+    enkripsi_ke_m = (m + (n-1)) % 26
+    enkripsi += alfabet[enkripsi_ke_m]
+
+dekripsi = ""
+for i in range(len(pesan)):
+    huruf_ke_n = pesan[i]
+    m = dict_alfabet[huruf_ke_n]
+    n = i+1
+    dekripsi_ke_m = (m - (n-1)) % 26
+    dekripsi += alfabet[denkripsi_ke_m]
+
+pilihan = input ("enkripsi/dekripsi: ") 
+if pilihan == 'enkripsi':
+ print("Pesan yang dienkripsi: ", enkripsi)
+
+elif pilihan == 'dekripsi':
+ print("Pesan yang didekripsi: ", dekripsi)
